@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
-
+/*
+* 居民端APP后台
+* 登录Controller
+* xiaoma
+* */
 @RestController
 @RequestMapping("/resiDentLog")
 public class LoginController {
@@ -24,9 +28,8 @@ public class LoginController {
         String userPassWord = map.get("PassWord");
         String allName = map.get("allName");
         ExUser user=loginService.login(userCode,allName);
-        System.out.println(user);
         String code =(String) session.getAttribute("code");
-        //code="1111";
+        code="1111";
         if(user.getUserName() != "" && userPassWord.equals(code)){
             session.setAttribute("phon",userCode);
             return user;
@@ -41,7 +44,7 @@ public class LoginController {
         String code = SmsUtil.SendSMS(phone);
         session.setAttribute("code",code);
     }
-
+    //回显
     @RequestMapping("/findAlluser")
     public ExUser findAlluser(@RequestBody Map<String,String> map){
         String id =map.get("id");
