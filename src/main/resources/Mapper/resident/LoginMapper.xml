@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.resident.LoginMapper">
+
+<!--登录系统查询用户名和密码-->
+<select id="login" resultType="com.example.demo.pojo.resident.ExUser">
+select  * from ex_user where user_name = #{userCode};
+</select>
+<insert id="addphon">
+	insert into ex_user(user_name,user_allname) values (#{userCode},#{allName});
+</insert>
+<select id="findAlluser" resultType="com.example.demo.pojo.resident.ExUser">
+	select * from ex_user where id=#{id}
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
