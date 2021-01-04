@@ -32,7 +32,7 @@ public class SmsUtil {
         request.setSysAction("SendSms");
         request.putQueryParameter("RegionId", "cn-BeiJing");
         request.putQueryParameter("PhoneNumbers", phone);
-        request.putQueryParameter("SignName", "国医堂APP");
+        request.putQueryParameter("SignName", "亮源威年会活动");
         request.putQueryParameter("TemplateCode", "SMS_184106306");
         String code = randomCode();
         System.out.println("发的验证码"+code);

@@ -26,7 +26,7 @@ public class LoginController {
         ExUser user=loginService.login(userCode,allName);
         System.out.println(user);
         String code =(String) session.getAttribute("code");
-        code="1111";
+        //code="1111";
         if(user.getUserName() != "" && userPassWord.equals(code)){
             session.setAttribute("phon",userCode);
             return user;
