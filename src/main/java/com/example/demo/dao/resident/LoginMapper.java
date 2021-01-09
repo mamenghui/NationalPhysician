@@ -1,14 +1,24 @@
 package com.example.demo.dao.resident;
 
 import com.example.demo.pojo.resident.ExUser;
+import com.example.demo.pojo.resident.gytResident;
+import com.example.demo.pojo.resident.gytResidentLogin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface LoginMapper {
+    
+    gytResidentLogin Reslogin(@Param("rdtLoginAccount") String rdtLoginAccount);
 
-    ExUser login(@Param("userCode") String userCode);
+    Boolean addphon(@Param("rdtLoginAccount")String rdtLoginAccount,@Param("rdtLoginRealName") String rdtLoginRealName,@Param("rdtLoginResidentId")Integer rdtLoginResidentId);
 
-    Boolean addphon(@Param("userCode") String userCode,@Param("allName")String allName);
+    int addred(gytResident gys);
 
-    ExUser findAlluser(@Param("id") Integer id);
+    gytResidentLogin findloginId(@Param("rdtLoginId")Integer rdtLoginId);
+
+    int updMessage(gytResidentLogin gytResidentLogin);
+
+    int glologs(gytResidentLogin gytResidentLogin);
+
+    int updata(@Param("url")String url,@Param("id") Integer id);
 }

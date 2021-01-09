@@ -7,7 +7,7 @@ public class gytResident {
     private Integer rdtFamily;  //居民家庭成员
     private String rdtAddress;  //居民家庭地址
     private String rdtDegree;   //居民学历
-    private String rdtIcon;     //居民头像
+
 
     @Override
     public String toString() {
@@ -18,7 +18,6 @@ public class gytResident {
                 ", rdtFamily=" + rdtFamily +
                 ", rdtAddress='" + rdtAddress + '\'' +
                 ", rdtDegree='" + rdtDegree + '\'' +
-                ", rdtIcon='" + rdtIcon + '\'' +
                 '}';
     }
 
@@ -70,11 +69,4 @@ public class gytResident {
         this.rdtDegree = rdtDegree;
     }
 
-    public String getRdtIcon() {
-        return rdtIcon;
-    }
-
-    public void setRdtIcon(String rdtIcon) {
-        this.rdtIcon = rdtIcon;
-    }
 }

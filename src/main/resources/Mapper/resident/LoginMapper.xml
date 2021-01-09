@@ -5,18 +5,40 @@
 <mapper namespace="com.example.demo.dao.resident.LoginMapper">
 
 <!--登录系统查询用户名和密码-->
-<select id="login" resultType="com.example.demo.pojo.resident.ExUser">
-select  * from ex_user where user_name = #{userCode};
+<select id="Reslogin" resultType="com.example.demo.pojo.resident.gytResidentLogin">
+select  * from gyt_resident_login where rdtLogin_account = #{rdtLoginAccount};
 </select>
+
 <insert id="addphon">
-	insert into ex_user(user_name,user_allname) values (#{userCode},#{allName});
+	insert into gyt_resident_login(rdtLogin_account,rdtLogin_realName,rdtLogin_residentId) values (#{rdtLoginAccount},#{rdtLoginRealName},#{rdtLoginResidentId});
 </insert>
-<select id="findAlluser" resultType="com.example.demo.pojo.resident.ExUser">
-	select * from ex_user where id=#{id}
+
+<insert id="addred"  useGeneratedKeys="true" keyProperty="rdtId" parameterType="com.example.demo.pojo.resident.gytResident">
+	insert into gyt_resident() values ();
+</insert>
+<!--根据id查询-->
+<select id="findloginId" resultType="com.example.demo.pojo.resident.gytResidentLogin">
+	select * from gyt_resident_login as rl
+		LEFT JOIN gyt_resident rd on rl.rdtLogin_residentId=rd.rdt_id
+	WHERE rl.rdtLogin_Id=#{rdtLoginId}
 </select>
 
+<update id="updMessage">
+	update gyt_resident set
+		rdt_email=#{rdtEmail},rdt_unit=#{rdtUnit},rdt_family=#{rdtFamily},rdt_address=#{rdtAddress},
+		rdt_degree=#{rdtDegree}
+		where rdt_id=#{rdtLoginResidentId}
+</update>
 
+<update id="glologs">
+	update gyt_resident_login set
+		rdtLogin_realName=#{rdtLoginRealName},rdtLogin_gender=#{rdtLoginGender},rdtLogin_birthData=#{rdtLoginBirthData}
+	where rdtLogin_Id=#{rdtLoginId}
+</update>
 
+<update id="updata">
+	update gyt_resident_login set rdtLogin_icon=#{url} where rdtLogin_Id=#{id}
+</update>
 
 
 

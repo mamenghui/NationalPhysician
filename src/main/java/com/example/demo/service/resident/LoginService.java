@@ -1,9 +1,14 @@
 package com.example.demo.service.resident;
 
 import com.example.demo.pojo.resident.ExUser;
+import com.example.demo.pojo.resident.gytResidentLogin;
 
 public interface LoginService {
-    ExUser login(String userCode, String allName);
+    gytResidentLogin Reslogin(String rdtLoginAccount, String rdtLoginRealName,String rdtLoginIcon);
 
-    ExUser findAlluser(Integer id);
+    gytResidentLogin findloginId(Integer rdtLoginId);
+
+    int updMessage(gytResidentLogin gytResidentLogin);
+
+    int updata(String url, Integer id);
 }
